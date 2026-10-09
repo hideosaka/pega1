@@ -6,7 +6,7 @@ Official simulation implementation for the JMLR paper:
 
 ---
 
-## 📌 Overview
+# Overview
 
 This repository contains the PyTorch implementation and numerical simulation suite for analyzing the capacity and generalization behavior of a **softmax-free polynomial self-attention surrogate**:
 
@@ -38,7 +38,7 @@ where $\mathcal{S}_r = \{S \in 	ext{Sym}_d(\mathbb{R}) : 	ext{rank}(S) \le r, \|
 
 ---
 
-## 🛠️ Prerequisites & Installation
+## Prerequisites & Installation
 
 ### Requirements
 - **Python:** 3.10+ (tested on Python 3.12)
@@ -58,7 +58,7 @@ pip install torch numpy matplotlib
 
 ---
 
-## 🚀 Usage
+## Usage
 
 ### 1. Fast Dry-Run (Figure Generation)
 To generate all paper figures using preset metrics:
@@ -76,7 +76,7 @@ python experiment_simulation.py
 
 ---
 
-## 📊 Key Output Figures
+## Key Output Figures
 
 When executed, the simulation outputs four publication-ready figures (`300 DPI`):
 
@@ -91,7 +91,7 @@ When executed, the simulation outputs four publication-ready figures (`300 DPI`)
 
 ---
 
-## 📝 Code Architecture
+## Code Architecture
 
 The core PyTorch module `PolynomialSelfAttention` implements:
 - **Symmetric Forward Pass:** Enforces quadratic score evaluation $x^T 	ext{sym}(S) x$.
@@ -107,22 +107,3 @@ model = PolynomialSelfAttention(d=4, rank=2, R_A=1.0, R_V=1.0)
 
 # Apply projected constraints post gradient step
 model.project_constraints()
-```
-
----
-
-## 📜 Citation & Contact
-
-If you find this code or theoretical framework useful in your research, please cite:
-
-```bibtex
-@article{ishiyama2026metric,
-  title={Metric Entropy and Generalization Upper Bounds for Low-Rank Symmetric-Score Polynomial Self-Attention},
-  author={Ishiyama, Hideki},
-  journal={Journal of Machine Learning Research},
-  year={2026}
-}
-```
-
-*Author:* Hideki Ishiyama (Osaka, Japan)  
-*Email:* `ishiyama.agep@gmail.com`
