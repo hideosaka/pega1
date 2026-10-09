@@ -18,7 +18,7 @@ Theoretical Highlights & S-Reduction
 - S-Reduction: By exploiting quadratic form symmetry $x^T A x = x^T 	ext{sym}(A) x$, non-functional skew-symmetric components are eliminated.
 - Capacity Exponent $D_r$: The total parameter-space entropy exponent for rank-r symmetric attention in $\mathbb{R}^d$ is:
   $$D_r = d_S(r) + d^2 = \frac{r(2d - r + 1)}{2} + d^2$$
-  For $d=4$, $D_r$ scales from $20$ (r=1) to $26$ (r=4), strictly tighter than generic matrix capacity bounds ($r(2d-r) + d^2$).
+  For $d=4$, $D_r$ scales from $20$ (r=1) to $26$ (r=4), strictly tighter than generic matrix capacity bounds (r(2d-r) + d^2).
 - **Generalization Upper Bound:** Dudley chaining yields an $O(\sqrt{D_r / n})$ uniform generalization error bound.
 
 ---
