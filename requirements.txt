@@ -1,0 +1,10 @@
+# Requirements for Low-Rank Symmetric-Score Polynomial Self-Attention Simulation
+
+# Deep Learning Framework
+torch>=2.0.0
+
+# Scientific Computing & Numerical Libraries
+numpy>=1.22.0
+
+# Plotting & Visualization
+matplotlib>=3.5.0
