@@ -59,7 +59,7 @@ python experiment_simulation.py --quick
 ```
 
 2. Full Experiment Run
-To train student models ($r \in \{1, 2, 3, 4\}$) against teacher rank $r_\star = 2$ across 50 random seeds:
+To train student models $r \in {1, 2, 3, 4 }$ against teacher rank $r_\star = 2$ across 50 random seeds:
 
 ```bash
 python experiment_simulation.py
