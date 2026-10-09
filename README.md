@@ -5,7 +5,6 @@ Official simulation implementation for the JMLR paper:
 Author: Hideki Ishiyama (Independent Researcher, Osaka, Japan)
 
 ---
-
 Overview
 
 This repository contains the PyTorch implementation and numerical simulation suite for analyzing the capacity and generalization behavior of a softmax-free polynomial self-attention surrogate:
