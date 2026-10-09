@@ -16,7 +16,7 @@ where $\mathcal{S}_r = \{S \in 	ext{Sym}_d(\mathbb{R}) : 	ext{rank}(S) \le r, \|
 Theoretical Highlights & S-Reduction
 - S-Reduction: By exploiting quadratic form symmetry $x^T A x = x^T 	ext{sym}(A) x$, non-functional skew-symmetric components are eliminated.
 - Capacity Exponent $D_r$: The total parameter-space entropy exponent for rank-r symmetric attention in $\mathbb{R}^d$ is:
-  $$D_r = d_S(r) + d^2 = \frac{r(2d - r + 1)}{2} + d^2$$
+  $D_r = d_S(r) + d^2 = \frac{r(2d - r + 1)}{2} + d^2$
   For $d=4$, $D_r$ scales from $20$ (r=1) to $26$ (r=4), strictly tighter than generic matrix capacity bounds (r(2d-r) + d^2).
 - **Generalization Upper Bound:** Dudley chaining yields an $O(\sqrt{D_r / n})$ uniform generalization error bound.
 
@@ -71,13 +71,13 @@ Key Output Figures
 When executed, the simulation outputs four publication-ready figures (`300 DPI`):
 
 1. **`fig1_rank_tradeoff.png` (Trade-off vs. Student Rank r):**
-   Illustrates the bias-variance trade-off between approximation error (vanishes at $r \ge r_\star=2$) and estimation error $O(\sqrt{D_r/n})$.
+   Illustrates the bias-variance trade-off between approximation error (vanishes at $r \ge r_{\star} = 2$) and estimation error $O(\sqrt{D_r/n})$.
 2. **`fig2_capacity_curve.png` (Capacity Exponent $D_r$ Scaling):**
    Plots $D_r$ vs. student rank $r$ for $d=4$, showing reduction from unconstrained dimension $2d^2 = 32$.
 3. **`fig3_sample_curve.png` (Generalization Gap Decay vs. $n$):**
    Demonstrates the $O(n^{-1/2})$ decay rate of empirical generalization gaps across sample sizes $n \in [100, 5000]$.
 4. **`fig4_bound_comparison.png` (Capacity Exponent Comparison):**
-   Bar chart comparing $S$-reduced capacity $D_r$ (Navy) against generic matrix capacity (Crimson).
+   Bar chart comparing $S$ -reduced capacity $D_r$ (Navy) against generic matrix capacity (Crimson).
 
 ---
 
