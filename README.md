@@ -73,13 +73,13 @@ where $\mathcal{S}_r = \{S \in \text{Sym}_d(\mathbb{R}) : \text{rank}(S) \le r, 
 ### 1. Fast Dry-Run (Verification)
 To run a fast multi-seed check across 5 seeds with 2,500 training steps:
 ```bash
-python experiment_simulation_v4.py --steps 2500 --seeds 5
+python experiment_simulation.py --steps 2500 --seeds 5
 ```
 
 ### 2. Full Paper Simulation
 To run the full 50-seed parallel simulation with 10,000 training steps per run:
 ```bash
-python experiment_simulation_v4.py --steps 10000 --seeds 50
+python experiment_simulation.py --steps 10000 --seeds 50
 ```
 
 ---
