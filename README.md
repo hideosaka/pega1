@@ -34,8 +34,8 @@ where $\mathcal{S}_r = \{S \in \text{Sym}_d(\mathbb{R}) : \text{rank}(S) \le r, 
 
 ```text
 .
-├── experiment_simulation_v4.py  # PyTorch model, projected training, and multi-seed simulation suite
-├── colab_simulation_v4.py       # Google Colab multi-core parallel execution script
+├── experiment_simulation.py  # PyTorch model, projected training, and multi-seed simulation suite
+├── colab_simulation.py       # Google Colab multi-core parallel execution script
 ├── README.md                    # Documentation and specification guide
 └── figures/                     # Generated publication-ready diagnostic plots (300 DPI)
     ├── fig1_rank_tradeoff.png   # Trade-off vs. Student Rank r (n = 150)
