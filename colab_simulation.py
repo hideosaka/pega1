@@ -1,5 +1,5 @@
 """
-JMLR Paper Simulation Script (v4 - Google Colab Ready Version)
+JMLR Paper Simulation Script (Google Colab Ready Version)
 Paper: Metric Entropy and Generalization Upper Bounds for Low-Rank Symmetric-Score Polynomial Self-Attention
 Author: Hideki Ishiyama
 
