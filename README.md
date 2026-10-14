@@ -34,13 +34,12 @@ where $\mathcal{S}_r = \{S \in \text{Sym}_d(\mathbb{R}) : \text{rank}(S) \le r, 
 
 ```text
 .
-├── experiment_simulation.py  # PyTorch model, projected training, and multi-seed simulation suite
-├── colab_simulation.py       # Google Colab multi-core parallel execution script
+├── experiment_simulation_v5.py  # PyTorch model, projected training, and multi-seed simulation suite
 ├── README.md                    # Documentation and specification guide
 └── figures/                     # Generated publication-ready diagnostic plots (300 DPI)
     ├── fig1_rank_tradeoff.png   # Trade-off vs. Student Rank r (n = 150)
     ├── fig2_capacity_curve.png  # Capacity Exponent D_r Scaling vs. Unconstrained Dim
-    ├── fig3_sample_curve.png    # Generalization Gap Decay vs. n (100 to 5000)
+    ├── fig3_sample_curve.png    # Generalization Gap Decay vs. n (2-Panel: Linear & Log-Log)
     ├── fig4_bound_comparison.png# S-Reduced Capacity vs. Generic Matrix Capacity
     └── fig5_convergence_steps.png # Optimization convergence dynamics
 ```
@@ -70,29 +69,34 @@ where $\mathcal{S}_r = \{S \in \text{Sym}_d(\mathbb{R}) : \text{rank}(S) \le r, 
 
 ## Usage
 
+This simulation suite is designed to execute in a **standard Command Line Interface (CLI) environment** (Linux, macOS, or Windows Terminal).
+
 ### 1. Fast Dry-Run (Verification)
 To run a fast multi-seed check across 5 seeds with 2,500 training steps:
 ```bash
-python experiment_simulation.py --steps 2500 --seeds 5
+python experiment_simulation_v5.py --steps 2500 --seeds 5
 ```
 
 ### 2. Full Paper Simulation
 To run the full 50-seed parallel simulation with 10,000 training steps per run:
 ```bash
-python experiment_simulation.py --steps 10000 --seeds 50
+python experiment_simulation_v5.py --steps 10000 --seeds 50
 ```
+
+> **Execution Environment & Notebook Note:**  
+> 1. **CPU Execution**: Please execute the code in a CPU environment. GPU support is not available.  
+> 2. **Interactive Notebooks (e.g., Google Colab / Jupyter)**: When executed inside interactive notebook cells, Python's `ProcessPoolExecutor` may experience process-locking due to IPython kernel forks. For execution inside Colab / Jupyter, please run via the Colab Terminal (CLI), or pass `--workers 1` to run in single-process mode (`python experiment_simulation_v5.py --steps 10000 --seeds 50 --workers 1`).
 
 ---
 
 ## Key Output Figures
 
-When executed, the simulation suite outputs five publication-ready figures (300 DPI):
+When executed, the simulation suite outputs four publication-ready figures (300 DPI):
 
 1. **`fig1_rank_tradeoff.png` (Trade-off vs. Student Rank $r$)**: Illustrates empirical train risk, generalization gap, and test risk across student ranks $r \in \{1, 2, 3, 4\}$ ($n=150$), highlighting exact convergence to the noise floor at $r \ge r_\star = 2$.
 2. **`fig2_capacity_curve.png` (Capacity Exponent $D_r$ Scaling)**: Plots $D_r$ vs. student rank $r$ for $d=4$, demonstrating reduction from unconstrained dimension $2d^2 = 32$.
-3. **`fig3_sample_curve.png` (Generalization Gap Decay vs. $n$)**: Demonstrates $O(n^{-1/2})$ decay rate of empirical generalization gaps across sample sizes $n \in [100, 5000]$ with unclipped $\pm 1$ SD error bands.
-4. **`fig4_bound_comparison.png` (Capacity Exponent Comparison)**: Bar chart comparing $S$-reduced capacity $D_r$ against generic matrix capacity $D_r^{\text{gen}}$.
-5. **`fig5_convergence_steps.png` (Convergence Dynamics)**: Training loss convergence curves confirming stability across gradient steps.
+3. **`fig3_sample_curve.png` (Generalization Gap Decay vs. $n$)**: Demonstrates $O(n^{-1/2})$ decay rate of empirical generalization gaps across sample sizes $n \in [100, 5000]$ using a 2-panel layout ((a) Linear Scale with $\pm 1$ SD error bands, (b) Log-Log Scale).
+4. **`fig4_bound_comparison.png` (Capacity Exponent Comparison)**: Bar chart comparing $S$-reduced capacity $D_r$ against generic matrix capacity $D_r^{\text{gen}}$.Note: `fig5_convergence_steps.png` is provided in the repository as a reference plot for Appendix H.)
 
 ---
 
