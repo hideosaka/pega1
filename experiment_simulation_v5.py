@@ -3,15 +3,7 @@ JMLR Simulation Script (v4 - Stage 1 Bugfixes: Rejection Sampling & Natural Gap 
 Paper: Metric Entropy and Generalization Upper Bounds for Low-Rank Symmetric-Score Polynomial Self-Attention
 Author: Hideki Ishiyama
 
-Stage 1 Updates (Compliance with Code Expert Comment 3.1 & 3.2):
-1. Rejection Sampling Input Distribution:
-   - Replaced norm-truncation (sphere-projection) with true rejection sampling from N(0, I_d) bounded by ||x||_2 <= B (B=2.0).
-   - Guarantees zero excess probability mass on the boundary sphere ||x||_2 = B, matching paper text (p.12).
-2. Unclipped Generalization Gap Error Bands (Figure 3):
-   - Removed artificial np.maximum(0, ...) clipping on (mean_gaps - std_gaps) in Figure 3.
-   - Allows natural representation of negative or zero-crossing generalization gaps.
-3. Explicit Parameter & Eigenvalue Specification:
-   - Explicitly logs teacher score matrix S_star eigenvalues before and after Frobenius norm normalization (||S_star||_F = 1.0).
+
 """
 
 import os
