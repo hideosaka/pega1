@@ -3,11 +3,6 @@ JMLR Paper Simulation Script (v4 - Google Colab Ready Version)
 Paper: Metric Entropy and Generalization Upper Bounds for Low-Rank Symmetric-Score Polynomial Self-Attention
 Author: Hideki Ishiyama
 
-Features:
-- Stage 1 Bugfixes: True Rejection Sampling (||x||_2 <= B) & Unclipped Gap Error Bands
-- Stage 2 Validated Settings: Configurable Seeds (default 20, up to 50) & Steps (default 5000)
-- Optimized for Google Colab CPU / GPU execution with tqdm progress tracking
-- Automatic high-res export (Figures 1-4) & formatted numerical text summary
 """
 
 import os
