@@ -34,12 +34,13 @@ where $\mathcal{S}_r = \{S \in \text{Sym}_d(\mathbb{R}) : \text{rank}(S) \le r, 
 
 ```text
 .
-├── experiment_simulation_v5.py  # PyTorch model, projected training, and multi-seed simulation suite
+├── experiment_simulation_v5.py  # Standard CLI multi-seed parallel simulation suite
+├── colab_simulation_v5.py       # Google Colab / Notebook script (with tqdm progress bar)
 ├── README.md                    # Documentation and specification guide
 └── figures/                     # Generated publication-ready diagnostic plots (300 DPI)
     ├── fig1_rank_tradeoff.png   # Trade-off vs. Student Rank r (n = 150)
     ├── fig2_capacity_curve.png  # Capacity Exponent D_r Scaling vs. Unconstrained Dim
-    ├── fig3_sample_curve.png    # Generalization Gap Decay vs. n (2-Panel: Linear & Log-Log)
+    ├── fig3_sample_curve.png    # Generalization Gap Decay vs. n (100 to 5000)
     ├── fig4_bound_comparison.png# S-Reduced Capacity vs. Generic Matrix Capacity
     └── fig5_convergence_steps.png # Optimization convergence dynamics
 ```
@@ -69,8 +70,6 @@ where $\mathcal{S}_r = \{S \in \text{Sym}_d(\mathbb{R}) : \text{rank}(S) \le r, 
 
 ## Usage
 
-This simulation suite is designed to execute in a **standard Command Line Interface (CLI) environment** (Linux, macOS, or Windows Terminal).
-
 ### 1. Fast Dry-Run (Verification)
 To run a fast multi-seed check across 5 seeds with 2,500 training steps:
 ```bash
@@ -83,20 +82,27 @@ To run the full 50-seed parallel simulation with 10,000 training steps per run:
 python experiment_simulation_v5.py --steps 10000 --seeds 50
 ```
 
-> **Execution Environment & Notebook Note:**  
-> 1. **CPU Execution**: Please execute the code in a CPU environment. GPU support is not available.  
-> 2. **Interactive Notebooks (e.g., Google Colab / Jupyter)**: When executed inside interactive notebook cells, Python's `ProcessPoolExecutor` may experience process-locking due to IPython kernel forks. For execution inside Colab / Jupyter, please run via the Colab Terminal (CLI), or pass `--workers 1` to run in single-process mode (`python experiment_simulation_v5.py --steps 10000 --seeds 50 --workers 1`).
+### 3. Google Colab / Interactive Notebook Execution
+For Google Colab or Jupyter Notebook environments, run `colab_simulation_v5.py` (includes tqdm progress bar):
+
+```bash
+# Fast dry-run on Colab
+!python colab_simulation_v5.py --seeds 5 --steps 2500 --output_dir ./
+
+# Full paper simulation on Colab
+!python colab_simulation_v5.py --seeds 50 --steps 10000 --output_dir ./
+```
 
 ---
 
 ## Key Output Figures
 
-When executed, the simulation suite outputs four publication-ready figures (300 DPI):
+When executed, the simulation suite outputs five publication-ready figures (300 DPI):
 
 1. **`fig1_rank_tradeoff.png` (Trade-off vs. Student Rank $r$)**: Illustrates empirical train risk, generalization gap, and test risk across student ranks $r \in \{1, 2, 3, 4\}$ ($n=150$), highlighting exact convergence to the noise floor at $r \ge r_\star = 2$.
 2. **`fig2_capacity_curve.png` (Capacity Exponent $D_r$ Scaling)**: Plots $D_r$ vs. student rank $r$ for $d=4$, demonstrating reduction from unconstrained dimension $2d^2 = 32$.
-3. **`fig3_sample_curve.png` (Generalization Gap Decay vs. $n$)**: Demonstrates $O(n^{-1/2})$ decay rate of empirical generalization gaps across sample sizes $n \in [100, 5000]$ using a 2-panel layout ((a) Linear Scale with $\pm 1$ SD error bands, (b) Log-Log Scale).
-4. **`fig4_bound_comparison.png` (Capacity Exponent Comparison)**: Bar chart comparing $S$-reduced capacity $D_r$ against generic matrix capacity $D_r^{\text{gen}}$.Note: `fig5_convergence_steps.png` is provided in the repository as a reference plot for Appendix H.)
+3. **`fig3_sample_curve.png` (Generalization Gap Decay vs. $n$)**: Demonstrates $O(n^{-1/2})$ decay rate of empirical generalization gaps across sample sizes $n \in [100, 5000]$ with unclipped $\pm 1$ SD error bands.
+4. **`fig4_bound_comparison.png` (Capacity Exponent Comparison)**: Bar chart comparing $S$-reduced capacity $D_r$ against generic matrix capacity $D_r^{\text{gen}}$.(Note: fig5_convergence_steps.png is provided in the repository as a reference plot for Appendix H.)
 
 ---
 
@@ -105,3 +111,4 @@ When executed, the simulation suite outputs four publication-ready figures (300 
 * **Main Paper**: Ishiyama, H. (2026). "Metric Entropy and Generalization Upper Bounds for Low-Rank Symmetric-Score Polynomial Self-Attention." *Journal of Machine Learning Research* (Submitted Oct 15, 2026).
 * **Companion Study**: Ishiyama, H. (2026). "Rank-adaptive local empirical processes in low-rank attention." *Under Review*. Preprint available at [https://doi.org/10.5281/zenodo.23147548](https://doi.org/10.5281/zenodo.23147548).
 * **Code Repository**: Anonymous reproducibility repository at [https://anonymous.4open.science/r/pega1-D170/](https://anonymous.4open.science/r/pega1-D170/).
+
